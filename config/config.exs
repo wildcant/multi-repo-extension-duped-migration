@@ -57,7 +57,8 @@ config :spark,
 
 config :data_pipeline_cron_poc,
   ecto_repos: [DataPipelineCronPoc.Repo, DataPipelineCronPoc.ObanRepo],
-  generators: [timestamp_type: :utc_datetime]
+  generators: [timestamp_type: :utc_datetime],
+  ash_domains: [DataPipelineCronPoc.Products]
 
 # Configures the endpoint
 config :data_pipeline_cron_poc, DataPipelineCronPocWeb.Endpoint,
