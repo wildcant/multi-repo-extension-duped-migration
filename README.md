@@ -1,3 +1,5 @@
+## Steps to reproduce
+
 1. Initialized the project: `mix igniter.new data_pipeline_cron_poc --with phx.new --install ash,ash_phoenix --install ash_postgres,ash_oban --install oban_web --yes`
 2. Added new oban repo - copy pasted default repo.
 3. migrated successfully: `mix ecto.create && mix ash.codegen --dev && mix ash.migrate`
