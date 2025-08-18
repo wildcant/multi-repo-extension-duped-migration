@@ -7,13 +7,14 @@
 # General application configuration
 import Config
 
+config :ex_cldr, default_backend: DataPipelineCronPoc.Cldr
 config :ash_oban, pro?: false
 
 config :data_pipeline_cron_poc, Oban,
   engine: Oban.Engines.Basic,
   notifier: Oban.Notifiers.Postgres,
   queues: [default: 10],
-  repo: DataPipelineCronPoc.Repo,
+  repo: DataPipelineCronPoc.ObanRepo,
   plugins: [{Oban.Plugins.Cron, []}]
 
 config :ash,
@@ -25,7 +26,9 @@ config :ash,
   keep_read_action_loads_when_loading?: false,
   default_actions_require_atomic?: true,
   read_action_after_action_hooks_in_order?: true,
-  bulk_actions_default_to_errors?: true
+  bulk_actions_default_to_errors?: true,
+  known_types: [AshMoney.Types.Money],
+  custom_types: [money: AshMoney.Types.Money]
 
 config :spark,
   formatter: [
@@ -53,7 +56,7 @@ config :spark,
   ]
 
 config :data_pipeline_cron_poc,
-  ecto_repos: [DataPipelineCronPoc.Repo],
+  ecto_repos: [DataPipelineCronPoc.Repo, DataPipelineCronPoc.ObanRepo],
   generators: [timestamp_type: :utc_datetime]
 
 # Configures the endpoint

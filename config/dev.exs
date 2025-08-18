@@ -11,6 +11,15 @@ config :data_pipeline_cron_poc, DataPipelineCronPoc.Repo,
   show_sensitive_data_on_connection_error: true,
   pool_size: 10
 
+config :data_pipeline_cron_poc, DataPipelineCronPoc.ObanRepo,
+  username: "postgres",
+  password: "postgres",
+  hostname: "localhost",
+  database: "data_pipeline_cron_poc_dev",
+  stacktrace: true,
+  show_sensitive_data_on_connection_error: true,
+  pool_size: 10
+
 # For development, we disable any cache and enable
 # debugging and code reloading.
 #

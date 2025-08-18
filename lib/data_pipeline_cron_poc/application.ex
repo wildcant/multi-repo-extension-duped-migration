@@ -10,6 +10,7 @@ defmodule DataPipelineCronPoc.Application do
     children = [
       DataPipelineCronPocWeb.Telemetry,
       DataPipelineCronPoc.Repo,
+      DataPipelineCronPoc.ObanRepo,
       {DNSCluster,
        query: Application.get_env(:data_pipeline_cron_poc, :dns_cluster_query) || :ignore},
       {Oban,
