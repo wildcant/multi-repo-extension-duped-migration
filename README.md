@@ -18,6 +18,3 @@
     (stdlib 7.0) timer.erl:599: :timer.tc/2
     (ecto_sql 3.13.2) lib/ecto/migration/runner.ex:25: Ecto.Migration.Runner.run/8
 ```
-
-
-doing it while we speak - I'm wondering if it's just an issue with installed extensions as it seems it doesn't generate duplicated migration for resources
